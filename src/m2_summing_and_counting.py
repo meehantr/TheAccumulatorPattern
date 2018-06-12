@@ -7,8 +7,8 @@ A subsequent module lets you practice the ACCUMULATOR pattern in another classic
    IN GRAPHICS:   x = x + pixels
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Thomas Meehan.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 # ----------------------------------------------------------------------
@@ -67,6 +67,18 @@ def run_test_sum_more_cosines():
     # Below this comment, add 2 more test cases of your own choosing.
     # ------------------------------------------------------------------
 
+    # Test 2:
+    expected = .02082
+    answer = sum_more_cosines(-4, 1)
+    print('Test 2 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
+    # Test 3:
+    expected = -.86583
+    answer = sum_more_cosines(1, 3)
+    print('Test 3 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
 
 def sum_more_cosines(m, n):
     """
@@ -94,6 +106,12 @@ def sum_more_cosines(m, n):
     #   Just   range(blah)   where blah is a single variable.
     #   Reason: To ensure that you get more practice using variables.
     # ------------------------------------------------------------------
+    import math
+
+    total = 0
+    for i in range(n + 1):
+        total = total + math.cos(m + i)
+    return total
 
 
 def run_test_count_sines_from():
@@ -121,6 +139,36 @@ def run_test_count_sines_from():
     # TO DO: 4 (continued).
     # Below this comment, add 5 more test cases of your own choosing.
     # ------------------------------------------------------------------
+
+    # Test 2:
+    expected = .02082
+    answer = count_sines_from(11, 13)
+    print('Test 2 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
+    # Test 3:
+    expected = 3
+    answer = count_sines_from(4, 6)
+    print('Test 3 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
+    # Test 4:
+    expected = 0
+    answer = count_sines_from(7, 7)
+    print('Test 4 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
+    # Test 5:
+    expected = 1
+    answer = count_sines_from(9, 9)
+    print('Test 5 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
+    # Test 6:
+    expected = .02082
+    answer = count_sines_from(0, 5)
+    print('Test 6 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
 
 
 def count_sines_from(m, n):
@@ -150,6 +198,13 @@ def count_sines_from(m, n):
     #   you must NOT use the 2 or 3-parameter versions
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
+    import math
+
+    count = 0
+    for i in range(n + 1):
+        if math.sin(m + i) < .5:
+            count = count + 1
+    return count
 
 
 def run_test_count_sines_vs_cosines():
